@@ -1,5 +1,8 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.service;
 
+import com.example.cloud.auth.info.OAuth2UserInfo;
+import com.example.cloud.auth.info.OAuth2UserInfoFactory;
+import com.example.cloud.auth.info.UserPrincipal;
 import com.example.demo.auth.UserPrincipal;
 import com.example.demo.domain.mapping.Role;
 import com.example.demo.domain.mapping.User;

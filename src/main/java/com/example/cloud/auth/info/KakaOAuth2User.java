@@ -1,8 +1,8 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.info;
 
 import java.util.Map;
 
-public class KakaOAuth2User extends OAuth2UserInfo{
+public class KakaOAuth2User extends OAuth2UserInfo {
 
     private Long id;
 

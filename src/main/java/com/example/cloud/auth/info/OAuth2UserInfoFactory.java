@@ -1,4 +1,7 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.info;
+
+import com.example.cloud.auth.info.KakaOAuth2User;
+import com.example.cloud.auth.info.OAuth2UserInfo;
 
 import java.util.Map;
 

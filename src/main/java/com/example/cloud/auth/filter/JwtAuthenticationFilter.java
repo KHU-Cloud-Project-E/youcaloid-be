@@ -1,4 +1,4 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.filter;
 
 public class JwtAuthenticationFilter {
 }

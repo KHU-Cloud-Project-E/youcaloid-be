@@ -1,4 +1,4 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.info;
 
 import com.example.demo.domain.mapping.Role;
 import com.example.demo.domain.mapping.User;

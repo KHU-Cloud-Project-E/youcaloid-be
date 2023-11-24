@@ -1,4 +1,4 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.info;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

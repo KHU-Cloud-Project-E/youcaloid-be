@@ -1,4 +1,4 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.provider;
 
 import com.example.demo.config.exception.CustomAuthenticationException;
 import com.example.demo.web.dto.response.UserResponseDto;

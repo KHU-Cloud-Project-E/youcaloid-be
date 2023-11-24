@@ -1,4 +1,4 @@
-package com.example.cloud.auth;
+package com.example.cloud.auth.jwt;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
