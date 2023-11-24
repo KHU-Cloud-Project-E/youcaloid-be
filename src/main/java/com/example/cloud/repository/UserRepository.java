@@ -1,6 +1,7 @@
 package com.example.cloud.repository;
 
-import com.example.demo.domain.mapping.User;
+
+import com.example.cloud.domain.mapping.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

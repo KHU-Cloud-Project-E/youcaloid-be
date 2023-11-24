@@ -1,7 +1,8 @@
 package com.example.cloud.service.impl;
 
-import com.example.demo.repository.UserRepository;
-import com.example.demo.service.UserService;
+
+import com.example.cloud.repository.UserRepository;
+import com.example.cloud.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

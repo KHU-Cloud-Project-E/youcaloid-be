@@ -1,8 +1,8 @@
 package com.example.cloud.auth.handler;
 
+
 import com.example.cloud.auth.provider.JwtTokenProvider;
-import com.example.demo.auth.provider.JwtTokenProvider;
-import com.example.demo.repository.UserRepository;
+import com.example.cloud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;

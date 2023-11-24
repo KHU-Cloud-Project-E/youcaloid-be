@@ -1,6 +1,7 @@
 package com.example.cloud.converter;
 
-import com.example.demo.web.dto.response.UserResponseDto;
+
+import com.example.cloud.web.dto.UserResponseDto;
 
 public class UserConverter {
 

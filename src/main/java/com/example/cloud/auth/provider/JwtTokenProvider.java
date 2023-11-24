@@ -1,7 +1,8 @@
 package com.example.cloud.auth.provider;
 
-import com.example.demo.config.exception.CustomAuthenticationException;
-import com.example.demo.web.dto.response.UserResponseDto;
+
+import com.example.cloud.config.CustomAuthenticationException;
+import com.example.cloud.web.dto.UserResponseDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -24,7 +25,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
-import static com.example.demo.config.base.Code.*;
+import static com.example.cloud.config.Code.*;
 
 @Slf4j
 @Component

@@ -1,7 +1,8 @@
 package com.example.cloud.auth.info;
 
-import com.example.demo.domain.mapping.Role;
-import com.example.demo.domain.mapping.User;
+
+import com.example.cloud.domain.mapping.Role;
+import com.example.cloud.domain.mapping.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
