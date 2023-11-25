@@ -35,7 +35,6 @@ public class User extends BaseEntity {
 
     private Integer platform;
 
-
     private Integer status;
 
     @Enumerated(EnumType.STRING)

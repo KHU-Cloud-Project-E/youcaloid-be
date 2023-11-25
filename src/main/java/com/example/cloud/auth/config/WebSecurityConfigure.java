@@ -33,7 +33,7 @@ public class WebSecurityConfigure {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return (web) ->web.ignoring()
-                .antMatchers("/users/autologin","/test/**","/terms/**","/health/**","/images/**","/post","/users/autologin/**","/users/signup/**","/v3/**","/swagger-ui/**")
+                .antMatchers( "/users/autologin","/health/**","/images/**","/post","/users/autologin/**","/users/signup/**","/v3/**","/swagger-ui/**")
                 .antMatchers(HttpMethod.GET, "/users/callback/**","/test/**","/posts/**")
                 .antMatchers(HttpMethod.POST, "/posts");
     }
@@ -71,6 +71,8 @@ public class WebSecurityConfigure {
         http.authorizeRequests().antMatchers("/").permitAll();
 
         http.authorizeRequests()
+                .antMatchers("/**").permitAll()
+                .antMatchers("/models/**").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/users/oauth2/").permitAll()
                 .antMatchers("/posts/").permitAll()
@@ -81,7 +83,7 @@ public class WebSecurityConfigure {
 
         http.exceptionHandling()
                 //.authenticationEntryPoint(jwtAuthenticationEntryPoint)
-                //.accessDeniedHandler(jwtAccessDeniedHandler)
+                .accessDeniedHandler(jwtAccessDeniedHandler)
                 .and()
                 .oauth2Login()
                 .authorizationEndpoint().baseUri("/oauth2/authorize/**")

@@ -1,10 +1,14 @@
 package com.example.cloud.domain.mapping;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "MODEL_INFO")
@@ -18,8 +22,20 @@ public class Model {
     @Column(name = "MODELPATH", length = 300)
     private String path;
 
-    @Column(name = "DESCRIPTION", length = 30)
+    @Column(name = "NAME", length = 30)
+    private String name;
+
+    @Column(name = "DETAIL", length = 500)
     private String description;
+
+    private int share_check;
+
+    private String image_url;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
 
 

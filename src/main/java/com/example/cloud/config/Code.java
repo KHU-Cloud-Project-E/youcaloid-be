@@ -12,7 +12,7 @@ public enum Code {
      * 200 : 요청 성공
      */
     SUCCESS(HttpStatus.OK, true, 2000, "요청에 성공하였습니다."),
-
+    ERROR(HttpStatus.BAD_REQUEST, false, 4000, "server err"),
 
     /**
      * 400 : Request 오류, Response 오류
@@ -50,7 +50,15 @@ public enum Code {
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, false, 5000, "서버 내부에서 에러가 발생했습니다."),
     DATABASE_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, false, 5001, "데이터베이스 연결에 실패하였습니다."),
     SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, false, 5002, "서버와의 연결에 실패하였습니다."),
-    IMAGE_DELETE_FAIL(HttpStatus.INTERNAL_SERVER_ERROR, false, 5003, "이미지 삭제에 실패하였습니다");
+    IMAGE_DELETE_FAIL(HttpStatus.INTERNAL_SERVER_ERROR, false, 5003, "이미지 삭제에 실패하였습니다"),
+
+
+    /*
+    *  6000: models 관련 오류
+    * */
+    EMPTY_PATH_ERROR(HttpStatus.BAD_REQUEST, false, 6000, "path를 입력하지 않았습니다. "),
+    EMPTY_DESCRIPTION_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, false, 5001, "description을 입력하지 않았습니다.");
+
 
 
     private final HttpStatus httpStatus;
