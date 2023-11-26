@@ -10,6 +10,7 @@ import javax.persistence.*;
 @ToString
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Entity
 public class Star {
 
     @Id

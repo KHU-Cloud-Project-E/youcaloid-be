@@ -26,7 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Tag(name = "유저")
-@RequestMapping("/users")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
@@ -55,7 +54,7 @@ public class UserController {
      * @return BaseResponse<String>
      * */
     @Operation(summary = "회원 정보 수정 API", description = "user의 닉네임에 대해 변경하는 작업을 거친다.\n 유효한 acess token 값이 입력되어야 합니다.")
-    @PatchMapping("/")
+    @PatchMapping("/users")
     public BaseResponse<UserResponseDto.UserModifyDto> UserModify(@Validated @RequestBody UserRequestDto.ModifyUserDto request, @AuthUser User user){
 
         Long userId = user.getId();
@@ -137,7 +136,7 @@ public class UserController {
      * */
 
     @Operation(summary = "회원 탈퇴 API", description = "회원 탈퇴를 위한 API입니다. 회원의 상태를 탈퇴중(status = 3)으로 변경하고 60일 뒤에 회원 관련 데이터를 삭제합니다\n 유효한 acess token 값이 입력되어야 합니다.")
-    @PostMapping("/withdraw")
+    @PostMapping("users/withdraw")
     public BaseResponse<UserResponseDto.UserWithdrawDto> UserRemove(@AuthUser User user){
 
         Long userId = user.getId();

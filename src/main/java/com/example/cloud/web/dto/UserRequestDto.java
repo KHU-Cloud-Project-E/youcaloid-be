@@ -18,10 +18,6 @@ public class UserRequestDto {
         @NotEmpty(message = "email이 전송되어야 합니다.")
         private String email;
 
-        @Schema(description = "인스타그램 id")
-        @NotEmpty(message = "instagram_id를 입력해주세요")
-        private String instagram_id;
-
         //@NotNull
         //private BoardImage boardImage;
 

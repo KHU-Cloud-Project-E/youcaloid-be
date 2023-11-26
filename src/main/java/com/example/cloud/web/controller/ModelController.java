@@ -8,7 +8,6 @@ import com.example.cloud.service.ModelService;
 import com.example.cloud.web.dto.model.ModelRequestDto;
 import com.example.cloud.web.dto.model.ModelResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -82,13 +81,13 @@ public class ModelController {
      * */
     @Operation(summary = "모델 리스트 확인 기능", description = "모델 리스트를 확인할 수 있다. + 검색 기능 포함")
     @GetMapping("/models")
-    public BaseResponse<ModelResponseDto.ListUserModelDetailDto> FindModelListController(@Validated @RequestBody(required = false) ModelRequestDto.FindModelListDto request){
+    public BaseResponse<ModelResponseDto.ListUserModelDetailDto> FindModelListController(ModelRequestDto.FindModelListDto request){
 
-        if(request.getLast_id()==null){
+        if(request.getLastId()==null){
             return new BaseResponse<>(ERROR);
         }
 
-        return new BaseResponse<>(modelService.findModelList(request.getLast_id(),request.getName()));
+        return new BaseResponse<>(modelService.findModelList(request.getLastId(),request.getName()));
     }
 
 
@@ -97,10 +96,10 @@ public class ModelController {
      * [GET] /oauth2
      * */
     @Operation(summary = "모델 상세 정보 확인 기능", description = "모델 리스트를 확인할 수 있다. + 검색 기능 포함")
-    @GetMapping("/models/id")
-    public BaseResponse<ModelResponseDto.UserModelDetailDto> FindUserModelController(@Validated @RequestBody(required = false) ModelRequestDto.FindUserModelDto request, @AuthUser User user){
+    @GetMapping("/users/models/detail")
+    public BaseResponse<ModelResponseDto.UserModelDetailDto> FindUserModelController( ModelRequestDto.FindUserModelDto request, @AuthUser User user){
 
-        return new BaseResponse<>(modelService.findModelDetail(request.getModel_id()));
+        return new BaseResponse<>(modelService.findModelDetail(request.getModelId()));
     }
 
     /* 5
@@ -108,10 +107,10 @@ public class ModelController {
      * [GET] /oauth2
      * */
     @Operation(summary = "모델 상세 정보 확인 기능", description = "모델 리스트를 확인할 수 있다. + 검색 기능 포함")
-    @GetMapping("/models/idxs")
-    public BaseResponse<ModelResponseDto.UserModelDetailDto> FindModelController(@Validated @RequestBody(required = false) ModelRequestDto.FindUserModelDto request){
+    @GetMapping("/models/detail")
+    public BaseResponse<ModelResponseDto.UserModelDetailDto> FindModelController( ModelRequestDto.FindUserModelDto request){
 
-        return new BaseResponse<>(modelService.findModelDetail(request.getModel_id()));
+        return new BaseResponse<>(modelService.findModelDetail(request.getModelId()));
     }
 
     /* 5
@@ -121,7 +120,7 @@ public class ModelController {
      * */
 
     @Operation(summary = "모델 즐겨찾기 설정", description = "특정 모델을 즐겨찾기 설정 할 수 있다, 로그인 유저만 사용가능하다")
-    @PostMapping("/users/stars")
+    @PostMapping("/users/models/stars")
     public BaseResponse CreateStarModelController(@Validated @RequestBody(required = false) ModelRequestDto.FindUserModelDto request, @AuthUser User user){
 
         return null;
@@ -135,7 +134,7 @@ public class ModelController {
      * 일단 안 해도 됨
      * */
     @Operation(summary = "모델 즐겨찾기를 해제", description = "특정 모델을 즐겨찾기 해제할 수 있다, 로그인 유저만 사용가능하다. ")
-    @DeleteMapping("/users/stars")
+    @DeleteMapping("/users/models/stars")
     public BaseResponse DeleteStarModelController(@Validated @RequestBody(required = false) ModelRequestDto.FindUserModelDto request, @AuthUser User user){
 
         return null;
@@ -147,7 +146,7 @@ public class ModelController {
      * finish: ok
      * */
     @Operation(summary = "사용자의 모델을 수정", description = "특정 모델의 정보를 수정한다.")
-    @PatchMapping("/users")
+    @PatchMapping("/users/models")
     public BaseResponse UpdateUserModelController(@Validated @RequestBody(required = false) ModelRequestDto.UpdateUserModelDto request, @AuthUser User user){
 
         System.out.println("name" + request.getName());
@@ -161,7 +160,7 @@ public class ModelController {
      * [GET] /oauth2
      * */
     @Operation(summary = "모델 즐겨찾기를 해제", description = "특정 모델을 즐겨찾기 해제할 수 있다, 로그인 유저만 사용가능하다. ")
-    @PatchMapping(value = "/image",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PatchMapping(value = "users/models/image",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public BaseResponse UpdateUserModelImageController(@RequestParam("file") MultipartFile file, @RequestParam Long modelId,@AuthUser User user){
 
         String s3Url = modelService.updateUserModelImage(file,modelId);
@@ -174,16 +173,12 @@ public class ModelController {
      * */
 
     @Operation(summary = "모델 id 재발급", description = "특정 모델을 id값만 변경할 수 있다.")
-    @PutMapping("/models/re")
-    public BaseResponse UpdateUserModelIdController(@Validated @RequestBody(required = false) ModelRequestDto.FindUserModelDto request, @AuthUser User user){
+    @PutMapping("/users/models")
+    public BaseResponse UpdateUserModelIdController(ModelRequestDto.FindUserModelDto request, @AuthUser User user){
 
-        System.out.println(request.getModel_id());
-        return new BaseResponse(modelService.updateUserModelId(request.getModel_id()));
+        System.out.println(request.getModelId());
+        return new BaseResponse(modelService.updateUserModelId(request.getModelId()));
     }
-
-
-
-
 
 
 }

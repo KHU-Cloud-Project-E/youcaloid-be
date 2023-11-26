@@ -6,8 +6,8 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/umc_4?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
+    url: jdbc:mysql://database-1.cdgpqmch6szc.ap-northeast-3.rds.amazonaws.com:3306/cloudpro?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: admin
     password: 58859476
 
 
@@ -15,8 +15,8 @@ spring:
     open-in-view: true
     hibernate:
           ddl-auto: update
-    #      naming:
-    #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+          naming:
+            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     #      use-new-id-generator-mappings: false
 
     show-sql: true

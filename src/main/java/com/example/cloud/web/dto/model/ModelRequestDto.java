@@ -29,7 +29,7 @@ public class ModelRequestDto {
     public static class FindModelListDto{
 
         @Schema(description = "마지막으로 확인한 id값을 보여줍니다.")
-        private Long last_id;
+        private Long lastId;
 
         private String name;
 
@@ -51,7 +51,7 @@ public class ModelRequestDto {
     public static class FindUserModelDto{
 
         @Schema(description = "사용자의 model_id")
-        private Long model_id;
+        private Long modelId;
 
     }
 

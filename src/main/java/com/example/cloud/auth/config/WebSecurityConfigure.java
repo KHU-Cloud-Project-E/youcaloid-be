@@ -33,7 +33,7 @@ public class WebSecurityConfigure {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return (web) ->web.ignoring()
-                .antMatchers( "/users/autologin","/health/**","/images/**","/post","/users/autologin/**","/users/signup/**","/v3/**","/swagger-ui/**")
+                .antMatchers( "/models/**","/users/autologin","/health/**","/images/**","/post","/users/autologin/**","/users/signup/**","/v3/**","/swagger-ui/**")
                 .antMatchers(HttpMethod.GET, "/users/callback/**","/test/**","/posts/**")
                 .antMatchers(HttpMethod.POST, "/posts");
     }
