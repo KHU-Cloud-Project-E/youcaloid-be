@@ -28,6 +28,7 @@ public interface ModelRepository extends JpaRepository<Model, Long> {
     @Query("update MODEL_INFO set name = :name where id = :id")
     void updateName(@Param(value = "id")Long modelId , @Param(value = "name") String name);
 
+    //description
     @Modifying@Transactional
     @Query("update MODEL_INFO set description = :description where id = :id")
     void updateDescription(@Param(value = "id")Long modelId , @Param(value = "description") String description);
