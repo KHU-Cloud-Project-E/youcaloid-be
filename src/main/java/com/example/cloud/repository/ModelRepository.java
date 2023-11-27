@@ -32,6 +32,7 @@ public interface ModelRepository extends JpaRepository<Model, Long> {
     @Query("update MODEL_INFO set description = :description where id = :id")
     void updateDescription(@Param(value = "id")Long modelId , @Param(value = "description") String description);
 
+    //check
     @Modifying@Transactional
     @Query("update MODEL_INFO set share_check = :share where id = :id")
     void updateShareCheck(@Param(value = "id")Long modelId , @Param(value = "share") int share);
