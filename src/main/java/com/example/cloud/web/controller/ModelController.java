@@ -159,7 +159,7 @@ public class ModelController {
      * 모델 사진 등록 api
      * [GET] /oauth2
      * */
-    @Operation(summary = "모델 즐겨찾기를 해제", description = "특정 모델을 즐겨찾기 해제할 수 있다, 로그인 유저만 사용가능하다. ")
+    @Operation(summary = "모델 이미지 업데이트", description = "특정 모델의 이미지를 재설정할 수 있다.  ")
     @PatchMapping(value = "users/models/image",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public BaseResponse UpdateUserModelImageController(@RequestParam("file") MultipartFile file, @RequestParam Long modelId,@AuthUser User user){
 

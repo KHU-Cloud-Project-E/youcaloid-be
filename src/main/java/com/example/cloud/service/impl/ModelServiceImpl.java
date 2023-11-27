@@ -123,9 +123,14 @@ public class ModelServiceImpl implements ModelService {
 
         try {
             amazonS3.putObject(bucket, fileName, file.getInputStream(), objectMetadata);
+
         } catch (IOException e) {
             return null;
         }
+
+        String url = amazonS3.getUrl(bucket, fileName).toString();
+        System.out.println(modelId+"url:"+url);
+        modelRepository.updateImageUrl(modelId, url);
 
         return amazonS3.getUrl(bucket, fileName).toString();
 
