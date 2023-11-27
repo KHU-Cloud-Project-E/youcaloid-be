@@ -126,6 +126,7 @@ public class ModelServiceImpl implements ModelService {
 
         } catch (IOException e) {
             return null;
+
         }
 
         String url = amazonS3.getUrl(bucket, fileName).toString();
