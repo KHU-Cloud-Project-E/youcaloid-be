@@ -35,11 +35,12 @@ public class ModelController {
      * */
 
     @Operation(summary = "모델 업로드 기능", description = "사용자의 모델 path, model description을 전달")
-    @PostMapping("/models")
+    @PostMapping("users/models")
     public BaseResponse<ModelResponseDto.CreateModelFinishDto> CreateModelController(@RequestBody(required = false) ModelRequestDto.CreateModelDto request, @AuthUser User user){
 
         System.out.println("path: " + request.getPath());
         System.out.println("name" + request.getName());
+        System.out.println("user: " + user);
         System.out.println("user id: " + user.getId());
 
         if(request.getPath() == null){

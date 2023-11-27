@@ -41,7 +41,7 @@ public class UserController {
     * */
     @Hidden
     @Operation(summary = "로그인 성공시 토큰 획득 API", description = "카카오 로그인 성공시 이곳으로 자동으로 이동해 토큰 정보를 얻습니다.")
-    @GetMapping("/callback")
+    @GetMapping("users/callback")
     public BaseResponse<UserResponseDto.TokenInfo> UserKakaoCallback(@RequestParam(name="access_token") String accessToken , @RequestParam(name = "refresh_token") String refreshToken){
 
         return new BaseResponse<>(UserConverter.toUserTokenInfo(accessToken,refreshToken));
