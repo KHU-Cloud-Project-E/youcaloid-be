@@ -20,4 +20,6 @@ public interface ModelService {
     String updateUserModelImage(MultipartFile file, Long modelId);
 
     Boolean updateUserModelId(Long modelId);
+
+    String DeleteUserModel(Long modelId);
 }

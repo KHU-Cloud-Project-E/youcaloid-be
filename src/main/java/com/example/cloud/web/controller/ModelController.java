@@ -181,5 +181,13 @@ public class ModelController {
         return new BaseResponse(modelService.updateUserModelId(request.getModelId()));
     }
 
+    @Operation(summary = "모델 삭제", description = "특정 모델을 삭제할 수 있다. ")
+    @DeleteMapping("/users/models")
+    public BaseResponse DeleteUserModelController(ModelRequestDto.FindUserModelDto request, @AuthUser User user){
+
+        System.out.println(request.getModelId());
+        return new BaseResponse(modelService.DeleteUserModel(request.getModelId()));
+    }
+
 
 }

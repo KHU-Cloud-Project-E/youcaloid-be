@@ -30,8 +30,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void  doFilterInternal(HttpServletRequest servletRequest, HttpServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException{
 
         System.out.println(servletRequest.getRequestURI());
-        if(servletRequest.getRequestURI().contains("/oauth2/callback") || servletRequest.getRequestURI().contains("/login")){
-
+        if(servletRequest.getRequestURI().contains("/oauth2/callback") || servletRequest.getRequestURI().contains("/login")||servletRequest.getRequestURI().contains("/favicon.ico")){
+            System.out.println("url: " + servletRequest.getRequestURI() +"skip");
             filterChain.doFilter(servletRequest, servletResponse);
         }else{
             //1. Request Header 에서 JWT Token 추출

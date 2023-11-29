@@ -159,4 +159,22 @@ public class ModelServiceImpl implements ModelService {
         return true;
     }
 
+
+    @Override
+    public String  DeleteUserModel(Long modelId){
+
+        Optional<Model> model = modelRepository.findById(modelId);
+
+        if(model.get().getId()==null){
+
+            return "그런 모델 없어요";
+        }else {
+
+            modelRepository.deleteById(modelId);
+
+            return "삭제 완료 되었습니다.";
+
+        }
+
+    }
 }

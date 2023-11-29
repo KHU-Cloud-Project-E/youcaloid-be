@@ -72,17 +72,17 @@ public class WebSecurityConfigure {
 
         http.authorizeRequests()
                 .antMatchers("/**").permitAll()
+                .antMatchers("favicon.ico").permitAll()
                 .antMatchers("/models/**").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/users/oauth2/").permitAll()
                 .antMatchers("/posts/").permitAll()
                 .antMatchers("/images/").permitAll()
-                .antMatchers("/terms/").permitAll()
                 .antMatchers("/postImages/**").authenticated();
 
 
         http.exceptionHandling()
-                //.authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .accessDeniedHandler(jwtAccessDeniedHandler)
                 .and()
                 .oauth2Login()
