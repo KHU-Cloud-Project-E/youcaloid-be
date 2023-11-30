@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database-1.cdgpqmch6szc.ap-northeast-3.rds.amazonaws.com:3306/cloudpro?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: admin
-    password: 58859476
+    password: 
 
 
   jpa:
@@ -35,8 +35,8 @@ spring:
       client:
         registration:
           kakao:
-            client-id: cb28ff3468d7eea6511f5c4097877946
-            client-secret: 6QAr9Pd1YAxWNUyw8UcF5Kx4V7RnexP3
+            client-id: 
+            client-secret: 
             redirect-uri: http://localhost:8080/oauth2/callback
             client-authentication-method: POST
             authorization-grant-type: authorization_code
@@ -54,7 +54,7 @@ spring:
 
 
 jwt:
-  secret: dafihehcoiqrgwwofqdjf439tr8yeu0fd9WXJIGTHR54J9320JDIWEHRDCKJDSERTHRGIALVSDzjd
+  secret: 
   access-token-validity-in-seconds: 360000000
   refresh-token-validity-in-seconds: 259200000000000
 
@@ -65,8 +65,8 @@ cloud:
     stack.auto: false
     region.static: ap-northeast-3
     credentials:
-      accessKey: AKIAWY2EUGLUMWDVIAXL
-      secretKey: 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
+      accessKey:
+      secretKey:
   refresh-token-validity-in-seconds: 1209600000
 
 
