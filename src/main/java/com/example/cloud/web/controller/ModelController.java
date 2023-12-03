@@ -23,6 +23,7 @@ import static com.example.cloud.config.Code.*;
 @RequestMapping("/")
 @RestController //Controller : & ResController:
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://client")
 public class ModelController {
 
     private final ModelService modelService;
