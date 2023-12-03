@@ -5,6 +5,8 @@ import com.example.cloud.auth.provider.JwtTokenProvider;
 import com.example.cloud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,16 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+
+    // 클라이언트 URL 설정
+    @Value("${client.host}")
+    private String client_host;
+
+    @Value("${client.port}")
+    private String client_port;
+
+    @Value("${client.uri}")
+    private String client_uri;
 
     /*
     * 인증 성공시 JWT토큰 발급
@@ -51,9 +63,9 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             queryParams.add("refresh_token",refresh);
             String URL = UriComponentsBuilder.newInstance()
                     .scheme("http")
-                    .host("frontip")
-                    .port("5173")
-                    .path("/signin/callback")
+                    .host(client_host)
+                    .port(client_port)
+                    .path(client_uri)
                     .queryParams(queryParams)
                     .toUriString();
            System.out.println(URL);

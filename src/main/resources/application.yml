@@ -78,5 +78,5 @@ spring.servlet.multipart.maxRequestSize: 10MB
 #클라이언트 리다이렉트 주소
 client:
   host: ${FRONTEND_HOST}
-  port: ${FRONTEND_PORT}
-  uri: ${FRONTEND_URI}
+  port: ${FRONTEND_PORT:5173}
+  uri: ${FRONTEND_URI:/signin/callback}
