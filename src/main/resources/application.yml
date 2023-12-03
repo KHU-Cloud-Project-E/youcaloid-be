@@ -5,10 +5,10 @@ spring:
       matching-strategy: ant_path_matcher
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://database-1.cdgpqmch6szc.ap-northeast-3.rds.amazonaws.com:3306/cloudpro?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: admin
-    password: 58859476
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${DB_URL_NAME:jdbc:mariadb://database-1.cdgpqmch6szc.ap-northeast-3.rds.amazonaws.com:3306/cloudpro?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8}
+    username: ${DB_USR:admin}
+    password: ${DB_PWD:58859476}
 
 
   jpa:
@@ -61,12 +61,12 @@ jwt:
 cloud:
   aws:
     s3:
-      bucket: cloudprojectshi
+      bucket: ${S3_BUCKET:cloudprojectshi}
     stack.auto: false
-    region.static: ap-northeast-3
+    region.static: ${S3_REGION:ap-northeast-3}
     credentials:
-      accessKey: 
-      secretKey: 
+      accessKey: ${S3_ACCESSKEY}
+      secretKey: ${S3_SECRETKEY}
   refresh-token-validity-in-seconds: 1209600000
 
 
