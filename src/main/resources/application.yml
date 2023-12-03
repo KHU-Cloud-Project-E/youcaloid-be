@@ -35,8 +35,8 @@ spring:
       client:
         registration:
           kakao:
-            client-id: 
-            client-secret: 
+            client-id: ${KAKAO_CLIENT_ID}
+            client-secret: ${KAKAO_CLIENT_SECRET}
             redirect-uri: http://localhost:8080/oauth2/callback
             client-authentication-method: POST
             authorization-grant-type: authorization_code
@@ -54,7 +54,7 @@ spring:
 
 
 jwt:
-  secret: 
+  secret: ${JWT_SECRET}
   access-token-validity-in-seconds: 360000000
   refresh-token-validity-in-seconds: 259200000000000
 
@@ -73,3 +73,10 @@ cloud:
 # 파일 최대 10MB까지 허용
 spring.servlet.multipart.maxFileSize: 10MB
 spring.servlet.multipart.maxRequestSize: 10MB
+
+
+#클라이언트 리다이렉트 주소
+client:
+  host: ${FRONTEND_HOST}
+  port: ${FRONTEND_PORT}
+  uri: ${FRONTEND_URI}
