@@ -51,7 +51,7 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             queryParams.add("refresh_token",refresh);
             String URL = UriComponentsBuilder.newInstance()
                     .scheme("http")
-                    .host("frontip")
+                    .host("localhost")
                     .port("5173")
                     .path("/signin/callback")
                     .queryParams(queryParams)
