@@ -1,0 +1,75 @@
+# API Root path
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.cdgpqmch6szc.ap-northeast-3.rds.amazonaws.com:3306/cloudpro?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: admin
+    password: ${DB_PASSWORD}
+
+
+  jpa:
+    open-in-view: true
+    hibernate:
+          ddl-auto: update
+          naming:
+            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #      use-new-id-generator-mappings: false
+
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.use_sql_comments: true
+      globally_quoted_identifiers: true # 예약어
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+
+  logging:
+    level:
+      org.springframework: DEBUG
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ${KAKAO_CLIENT}
+            client-secret: ${KAKAO_SECRET}
+            redirect-uri: http://15.152.251.45:8080/oauth2/callback
+            client-authentication-method: POST
+            authorization-grant-type: authorization_code
+            scope:
+              - profile_nickname
+              - account_email
+            client-name: Kakao
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-validity-in-seconds: 360000000
+  refresh-token-validity-in-seconds: 259200000000000
+
+cloud:
+  aws:
+    s3:
+      bucket: cloudprojectshi
+    stack.auto: false
+    region.static: ap-northeast-3
+    credentials:
+      accessKey: ${ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
+  refresh-token-validity-in-seconds: 1209600000
+
+
+# 파일 최대 10MB까지 허용
+spring.servlet.multipart.maxFileSize: 10MB
+spring.servlet.multipart.maxRequestSize: 10MB
