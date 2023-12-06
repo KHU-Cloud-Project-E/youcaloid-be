@@ -21,6 +21,7 @@ import static com.example.cloud.config.Code.*;
 @Slf4j
 @Tag(name = "모델 관련 기능")
 @RequestMapping("/")
+@CrossOrigin
 @RestController //Controller : & ResController:
 @RequiredArgsConstructor
 public class ModelController {

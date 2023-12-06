@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Tag(name = "유저")
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 public class UserController {
